@@ -5,129 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SnowcapsTechnology</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f2027;
-      color: #eee;
-    }
-    .container {
-      width: 100%;
-      max-width: 360px;
-      background: rgba(20,30,40,0.9);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #00e6ff;
-      text-shadow: 0 0 6px #00e6ff;
-    }
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .form-group label {
-      font-size: 14px;
-      margin-bottom: 6px;
-      display: block;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      outline: none;
-    }
-    button {
-      margin-top: 10px;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #00e6ff;
-      color: #111;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #00b8d4;
-    }
-    .switch {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #aaa;
-    }
-    .switch span {
-      color: #00e6ff;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>SnowcapsTechnology</h1>
-    <form id="authForm">
-      <div class="form-group">
-        <label for="username">Nama</label>
-        <input type="text" id="username" required>
-      </div>
-      <div class="form-group">
-        <label for="age">Usia</label>
-        <input type="number" id="age" required>
-      </div>
-      <div class="form-group" id="emailGroup">
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" required>
-      </div>
-      <button type="submit" id="submitBtn">Register</button>
+  <div class="auth-container">
+    <h1 class="glow">SnowcapsTechnology</h1>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="form">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p>Belum punya akun? <a href="#" onclick="toggleForm()">Register</a></p>
     </form>
-    <div class="switch">
-      <span id="toggleMode">Sudah punya akun? Login</span>
-    </div>
+
+    <!-- Register Form -->
+    <form id="registerForm" class="form hidden">
+      <h2>Register</h2>
+      <input type="text" id="regName" placeholder="Nama" required>
+      <input type="number" id="regAge" placeholder="Usia" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <button type="submit">Register</button>
+      <p>Sudah punya akun? <a href="#" onclick="toggleForm()">Login</a></p>
+    </form>
   </div>
 
-  <script>
-    const form = document.getElementById("authForm");
-    const toggleMode = document.getElementById("toggleMode");
-    const emailGroup = document.getElementById("emailGroup");
-    const submitBtn = document.getElementById("submitBtn");
-
-    let isLogin = false;
-
-    toggleMode.addEventListener("click", () => {
-      isLogin = !isLogin;
-      if (isLogin) {
-        emailGroup.style.display = "none";
-        submitBtn.textContent = "Login";
-        toggleMode.textContent = "Belum punya akun? Register";
-      } else {
-        emailGroup.style.display = "block";
-        submitBtn.textContent = "Register";
-        toggleMode.textContent = "Sudah punya akun? Login";
-      }
-    });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      // Simulasi register & login berhasil
-      window.location.href = "shop.html";
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
