@@ -1,52 +1,33 @@
-const btnLogin = document.getElementById("btn-login");
-const btnRegister = document.getElementById("btn-register");
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-
-// switch tab
-if (btnLogin && btnRegister) {
-  btnLogin.onclick = () => {
-    btnLogin.classList.add("active");
-    btnRegister.classList.remove("active");
-    loginForm.classList.add("active");
-    registerForm.classList.remove("active");
-  };
-
-  btnRegister.onclick = () => {
-    btnRegister.classList.add("active");
-    btnLogin.classList.remove("active");
-    registerForm.classList.add("active");
-    loginForm.classList.remove("active");
-  };
+function toggleForm() {
+  document.getElementById("loginForm").classList.toggle("hidden");
+  document.getElementById("registerForm").classList.toggle("hidden");
 }
 
-// register
-if (registerForm) {
-  registerForm.onsubmit = (e) => {
-    e.preventDefault();
-    const name = document.getElementById("reg-name").value;
-    const email = document.getElementById("reg-email").value;
-    const pass = document.getElementById("reg-password").value;
+// Register
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const user = {
+    name: document.getElementById("regName").value,
+    age: document.getElementById("regAge").value,
+    email: document.getElementById("regEmail").value,
+    password: document.getElementById("regPassword").value
+  };
+  localStorage.setItem("user", JSON.stringify(user));
+  alert("Register berhasil! Silakan login.");
+  toggleForm();
+});
 
-    localStorage.setItem("user", JSON.stringify({name,email,pass}));
-    alert("Register berhasil! Anda otomatis login.");
+// Login
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (user && user.email === email && user.password === password) {
+    alert("Login berhasil!");
     window.location.href = "shop.html";
-  };
-}
-
-// login
-if (loginForm) {
-  loginForm.onsubmit = (e) => {
-    e.preventDefault();
-    const email = document.getElementById("login-email").value;
-    const pass = document.getElementById("login-password").value;
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    if(user && user.email === email && user.pass === pass){
-      alert("Login berhasil!");
-      window.location.href = "shop.html";
-    } else {
-      alert("Login gagal. Silakan cek email/password.");
-    }
-  };
-}
+  } else {
+    alert("Email atau password salah!");
+  }
+});
