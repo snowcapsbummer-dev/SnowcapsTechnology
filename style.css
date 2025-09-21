@@ -80,3 +80,34 @@ h1, h2, h3 {
   background: #00b8cc;
   color: #fff;
 }
+
+/* ====== CHECKOUT ====== */
+.checkout-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
+}
+
+.checkout-section {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.checkout-section h2 {
+  color: #00e6ff;
+  margin-bottom: 10px;
+}
+
+.checkout-section label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.checkout-actions {
+  text-align: center;
+  margin-top: 20px;
+}
