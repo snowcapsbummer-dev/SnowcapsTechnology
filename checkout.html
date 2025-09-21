@@ -7,27 +7,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <h1>Checkout</h1>
+
   <div class="checkout-container">
-    <h2>Checkout</h2>
-    <form onsubmit="window.location.href='https://youtu.be/AkkdcDdMpHo?feature=shared'; return false;">
-      <label>Metode Pembayaran</label>
-      <select required>
-        <option value="">Pilih...</option>
-        <option>Transfer Bank</option>
-        <option>COD</option>
-        <option>E-Wallet</option>
-      </select>
+    <!-- Ringkasan Produk -->
+    <section class="checkout-section">
+      <h2>Ringkasan Pesanan</h2>
+      <p><strong>Produk:</strong> Item pilihan Anda</p>
+      <p><strong>Harga:</strong> Rp -</p>
+    </section>
 
-      <label>Metode Pengiriman</label>
-      <select required>
-        <option value="">Pilih...</option>
-        <option>JNE</option>
-        <option>SiCepat</option>
-        <option>Pos Indonesia</option>
-      </select>
+    <!-- Metode Pembayaran -->
+    <section class="checkout-section">
+      <h2>Metode Pembayaran</h2>
+      <label><input type="radio" name="payment" value="transfer" checked> Transfer Bank</label><br>
+      <label><input type="radio" name="payment" value="ewallet"> E-Wallet</label><br>
+      <label><input type="radio" name="payment" value="cod"> Bayar di Tempat (COD)</label>
+    </section>
 
-      <button type="submit">Bayar Sekarang</button>
-    </form>
+    <!-- Metode Pengiriman -->
+    <section class="checkout-section">
+      <h2>Metode Pengiriman</h2>
+      <label><input type="radio" name="shipping" value="jne" checked> JNE</label><br>
+      <label><input type="radio" name="shipping" value="jnt"> J&T</label><br>
+      <label><input type="radio" name="shipping" value="sicepat"> SiCepat</label>
+    </section>
+
+    <!-- Tombol Bayar -->
+    <div class="checkout-actions">
+      <button class="buy-btn" onclick="window.location.href='https://youtu.be/AkkdcDdMpHo?feature=shared'">
+        Bayar
+      </button>
+    </div>
   </div>
+
 </body>
 </html>
