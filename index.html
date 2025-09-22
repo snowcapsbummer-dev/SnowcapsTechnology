@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnowcapsTechnology</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h1 class="glow">SnowcapsTechnology</h1>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="form">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p>Belum punya akun? <a href="#" onclick="toggleForm()">Register</a></p>
+    </form>
+
+    <!-- Register Form -->
+    <form id="registerForm" class="form hidden">
+      <h2>Register</h2>
+      <input type="text" id="regName" placeholder="Nama" required>
+      <input type="number" id="regAge" placeholder="Usia" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <button type="submit">Register</button>
+      <p>Sudah punya akun? <a href="#" onclick="toggleForm()">Login</a></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
